@@ -1,6 +1,8 @@
 package hu.elte.fullstack.bevasarlolista.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,7 +40,7 @@ public class Aru {
 
     @ManyToMany
     @JoinTable
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<BevasarloLista> bevasarloListak;
 
 }

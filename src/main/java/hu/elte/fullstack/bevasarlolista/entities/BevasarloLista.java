@@ -22,6 +22,7 @@ public class BevasarloLista {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer sorszam;
 
+
     @ManyToOne
     @JoinColumn
     private Felhasznalo felhasznalo;
