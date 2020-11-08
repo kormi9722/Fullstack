@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/bevasarlolistak")
 public class BevasarloListaController {
-
     @Autowired
     private BevasarloListaRepository bevasarloListaRepository;
 
@@ -45,32 +44,6 @@ public class BevasarloListaController {
         return ResponseEntity.ok(mentettBevasarloLista);
     }
 
-    /*@PutMapping("/{id}")
-    public ResponseEntity<BevasarloLista> put(@RequestBody BevasarloLista bevasarloLista, @PathVariable Integer sorszam)
-    {
-        Optional<BevasarloLista> optionalBevasarloLista = bevasarloListaRepository.findById(sorszam);
-        if(optionalBevasarloLista.isPresent())
-        {
-            bevasarloLista.setId(sorszam);
-            return ResponseEntity.ok(bevasarloListaRepository.save(bevasarloLista));
-        }
-        else
-        {
-            return ResponseEntity.notFound().build();
-        }
-    }*/
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Integer sorszam) {
-        Optional<BevasarloLista> optionalBevasarloLista = bevasarloListaRepository.findById(sorszam);
-        if (optionalBevasarloLista.isPresent()) {
-            bevasarloListaRepository.deleteById(sorszam);
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
     @PutMapping("/{sorszam}/additems")
     public ResponseEntity<BevasarloLista> addAru(@RequestBody Aru aru, @PathVariable Integer sorszam)
     {
@@ -80,12 +53,13 @@ public class BevasarloListaController {
             return ResponseEntity.notFound().build();
         }
         BevasarloLista bevasarloLista = optionalBevasarloLista.get();
-        if(bevasarloLista.getAruk()==null)
+        if(bevasarloLista.getAruk().isEmpty())
         {
             bevasarloLista.setAruk(new ArrayList<Aru>());
         }
         bevasarloLista.getAruk().add(aru);
-        return ResponseEntity.ok(bevasarloListaRepository.save(bevasarloLista));
+        bevasarloListaRepository.save(bevasarloLista);
+        return ResponseEntity.ok(bevasarloLista);
 
     }
 
@@ -132,4 +106,32 @@ public class BevasarloListaController {
         return ResponseEntity.ok(bevasarloListaRepository.save(bevasarloLista));
 
     }
+
+    /*@PutMapping("/{id}")
+    public ResponseEntity<BevasarloLista> put(@RequestBody BevasarloLista bevasarloLista, @PathVariable Integer sorszam)
+    {
+        Optional<BevasarloLista> optionalBevasarloLista = bevasarloListaRepository.findById(sorszam);
+        if(optionalBevasarloLista.isPresent())
+        {
+            bevasarloLista.setId(sorszam);
+            return ResponseEntity.ok(bevasarloListaRepository.save(bevasarloLista));
+        }
+        else
+        {
+            return ResponseEntity.notFound().build();
+        }
+    }*/
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable Integer sorszam) {
+        Optional<BevasarloLista> optionalBevasarloLista = bevasarloListaRepository.findById(sorszam);
+        if (optionalBevasarloLista.isPresent()) {
+            bevasarloListaRepository.deleteById(sorszam);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
 }

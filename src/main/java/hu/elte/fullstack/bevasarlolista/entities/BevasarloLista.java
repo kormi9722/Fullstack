@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,7 +26,7 @@ public class BevasarloLista {
     @JoinColumn
     private Felhasznalo felhasznalo;
 
-    @JsonIgnore
+
     @ManyToMany(mappedBy = "bevasarloListak")
     private List<Aru> aruk;
 

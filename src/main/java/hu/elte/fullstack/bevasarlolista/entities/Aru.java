@@ -36,7 +36,6 @@ public class Aru {
     @JoinTable
     private List<Bolt> boltok;
 
-    @JsonIgnore
     @ManyToMany
     @JoinTable
     @JsonIgnore
