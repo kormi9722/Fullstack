@@ -1,25 +1,32 @@
 package hu.elte.fullstack.bevasarlolista.entities;
 
+
+import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
+
 import javax.persistence.*;
 
 @Entity
 @Data
-@EquealsAndHashCode
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 public class Futarszolgalat {
 
     @Id
-    @Colum
+    @Column
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Colum
+    @Column
     @NotNull
     private String nev;
 
-    @Colum
+    @Column
     private Integer kiszallitasido;
 
 
