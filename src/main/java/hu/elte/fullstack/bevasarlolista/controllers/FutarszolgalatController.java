@@ -21,7 +21,7 @@ public class FutarszolgalatController {
 
     @GetMapping("")
     public ResponseEntity<Iterable<Futarszolgalat>> getAll() {
-        return ResponseEntity.ok(FutarszolgalatRepository.findAll());
+        return ResponseEntity.ok(futarszolgalatRepository.findAll());
     }
 
     @GetMapping("/{sorszam}")
