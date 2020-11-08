@@ -21,7 +21,7 @@ public class BoltController {
 
     @GetMapping("")
     public ResponseEntity<Iterable<Bolt>> getAll() {
-        return ResponseEntity.ok(BoltRepository.findAll());
+        return ResponseEntity.ok(boltRepository.findAll());
     }
 
     @GetMapping("/{sorszam}")
