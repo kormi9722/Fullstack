@@ -14,7 +14,7 @@ import java.util.List;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "BevasarloLista")
+@Table(name = "BEVASARLOLISTA")
 public class BevasarloLista {
 
     @Id

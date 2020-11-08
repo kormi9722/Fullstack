@@ -1,6 +1,5 @@
 package hu.elte.fullstack.bevasarlolista.entities;
 
-
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +13,7 @@ import javax.persistence.*;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Futarszolgalat")
+@Table(name = "FUTARSZOLGALAT")
 public class Futarszolgalat {
 
     @Id
@@ -23,11 +22,11 @@ public class Futarszolgalat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
+    @Column(nullable = false, name = "NEV")
     @NotNull
     private String nev;
 
-    @Column
+    @Column(nullable = false, name = "KISZALLITASIDO")
     private Integer kiszallitasido;
 
 

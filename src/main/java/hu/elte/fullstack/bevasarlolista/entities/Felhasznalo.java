@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-@Table(name="Felhasznalo")
+@Table(name="FELHASZNALO")
 public class Felhasznalo {
 
     @Id
@@ -27,16 +27,16 @@ public class Felhasznalo {
     @NotNull
     private String nev;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "FELHASZNALONEV")
     private String felhasznaloNev;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "JELSZO")
     private String jelszo;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "ATNEMVETTCSOMAGOK")
     private int atNemVettCsomagok;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "SZEREPKOR")
     @Enumerated(EnumType.STRING)
     private Szerepkor szerepkor;
 

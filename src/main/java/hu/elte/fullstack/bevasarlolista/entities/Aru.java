@@ -14,7 +14,7 @@ import java.util.List;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Aru")
+@Table(name = "ARU")
 public class Aru {
 
     @Id
@@ -23,11 +23,11 @@ public class Aru {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cikkszam;
 
-    @Column
+    @Column(name = "NEV")
     @NotNull
     private String nev;
 
-    @Column
+    @Column(name = "AR")
     @NotNull
     private Integer ar;
 

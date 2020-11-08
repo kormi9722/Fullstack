@@ -16,20 +16,20 @@ import java.util.List;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Bolt")
+@Table(name = "BOLT")
 public class Bolt {
 
     @Id
     private Integer sorszam;
 
-    @Column
+    @Column(nullable = false, name = "NEV")
     private String nev;
 
-    @Column
+    @Column(name = "CIM")
     @NotNull
     private String cim;
 
-    @Column
+    @Column(nullable = false, name = "HONLAP")
     private String honlap;
 
     @JsonIgnore
