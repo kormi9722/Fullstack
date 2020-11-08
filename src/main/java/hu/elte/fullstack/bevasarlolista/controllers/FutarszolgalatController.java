@@ -27,7 +27,7 @@ public class FutarszolgalatController {
     @GetMapping("/{sorszam}")
     public ResponseEntity<Futarszolgalat> get(@PathVariable Integer sorszam) {
         Optional<Futarszolgalat> futarszolgalat = futarszolgalatRepository.findById(sorszam);
-        if (bolt.isPresent()) {
+        if (futarszolgalat.isPresent()) {
             return ResponseEntity.ok(futarszolgalat.get());
         } else {
             return ResponseEntity.notFound().build();
