@@ -1,25 +1,33 @@
 package hu.elte.fullstack.bevasarlolista.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
-@EquealsAndHashCode
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 public class Aru {
 
     @Id
-    @Colum
+    @Column
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cikkaszam;
 
-    @Colum
+    @Column
     @NotNull
     private String nev;
 
-    @Colum
+    @Column
     @NotNull
     private Integer ar;
 
