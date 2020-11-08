@@ -1,5 +1,6 @@
 package hu.elte.fullstack.bevasarlolista.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,6 +36,7 @@ public class Aru {
     @JoinTable
     private List<Bolt> boltok;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable
     private List<BevasarloLista> bevasarloListak;
