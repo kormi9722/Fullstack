@@ -17,5 +17,7 @@ insert into ARU (NEV, AR) values ('mososzer', 100500);
 insert into FUTARSZOLGALAT (NEV, KISZALLITASIDO) values ('GLS', 1)
 insert into FUTARSZOLGALAT (NEV, KISZALLITASIDO) values ('UPS', 2)
 
+insert into BEVASARLOLISTA (FELHASZNALO_Id) values (2);
+
 
 
