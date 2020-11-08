@@ -21,13 +21,13 @@ public class FutarszolgalatController {
 
     @GetMapping("")
     public ResponseEntity<Iterable<Futarszolgalat>> getAll() {
-        return ResponseEntity.ok(FutarszolgalatRepository.findAll());
+        return ResponseEntity.ok(futarszolgalatRepository.findAll());
     }
 
     @GetMapping("/{sorszam}")
     public ResponseEntity<Futarszolgalat> get(@PathVariable Integer sorszam) {
         Optional<Futarszolgalat> futarszolgalat = futarszolgalatRepository.findById(sorszam);
-        if (bolt.isPresent()) {
+        if (futarszolgalat.isPresent()) {
             return ResponseEntity.ok(futarszolgalat.get());
         } else {
             return ResponseEntity.notFound().build();

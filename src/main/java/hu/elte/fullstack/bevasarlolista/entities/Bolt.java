@@ -8,10 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -19,6 +16,7 @@ import java.util.List;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "Bolt")
 public class Bolt {
 
     @Id
@@ -35,7 +33,7 @@ public class Bolt {
     private String honlap;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "aru")
+    @ManyToMany(mappedBy = "boltok")
     private List<Aru> aruk;
 
 }

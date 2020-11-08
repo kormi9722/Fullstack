@@ -14,6 +14,7 @@ import javax.persistence.*;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "Futarszolgalat")
 public class Futarszolgalat {
 
     @Id

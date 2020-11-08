@@ -21,7 +21,7 @@ public class AruController {
 
     @GetMapping("")
     public ResponseEntity<Iterable<Aru>> getAll() {
-        return ResponseEntity.ok(AruRepository.findAll());
+        return ResponseEntity.ok(aruRepository.findAll());
     }
 
     @GetMapping("/{sorszam}")

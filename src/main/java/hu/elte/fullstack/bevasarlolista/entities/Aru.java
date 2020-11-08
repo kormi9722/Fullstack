@@ -1,6 +1,5 @@
 package hu.elte.fullstack.bevasarlolista.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,13 +14,14 @@ import java.util.List;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "Aru")
 public class Aru {
 
     @Id
     @Column
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer cikkaszam;
+    private Integer cikkszam;
 
     @Column
     @NotNull
@@ -31,8 +31,12 @@ public class Aru {
     @NotNull
     private Integer ar;
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "bolt")
+    @ManyToMany
+    @JoinTable
     private List<Bolt> boltok;
+
+    @ManyToMany
+    @JoinTable
+    private List<BevasarloLista> bevasarloListak;
 
 }
