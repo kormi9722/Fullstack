@@ -40,7 +40,7 @@ public class BevasarloListaController {
     }
 
     @PostMapping("")
-    public ResponseEntity<BevasarloLista> post(@PathVariable BevasarloLista bevasarloLista) {
+    public ResponseEntity<BevasarloLista> post(@RequestBody BevasarloLista bevasarloLista) {
         BevasarloLista mentettBevasarloLista = bevasarloListaRepository.save(bevasarloLista);
         return ResponseEntity.ok(mentettBevasarloLista);
     }
