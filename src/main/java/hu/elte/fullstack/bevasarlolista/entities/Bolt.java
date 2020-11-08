@@ -1,10 +1,22 @@
 package hu.elte.fullstack.bevasarlolista.entities;
 
-import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.List;
 
 @Entity
 @Data
-@EquealsAndHashCode
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 public class Bolt {
@@ -12,16 +24,15 @@ public class Bolt {
     @Id
     private Integer sorszam;
 
-    @Colum
-    @NotNull
+    @Column
     private String nev;
 
-    @Colum
+    @Column
     @NotNull
     private String cim;
 
-    @Colum
-    private String honlap
+    @Column
+    private String honlap;
 
     @JsonIgnore
     @ManyToMany(mappedBy = "aru")
