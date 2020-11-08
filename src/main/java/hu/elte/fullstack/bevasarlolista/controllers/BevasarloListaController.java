@@ -1,7 +1,9 @@
 package hu.elte.fullstack.bevasarlolista.controllers;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
+import hu.elte.fullstack.bevasarlolista.entities.Aru;
 import hu.elte.fullstack.bevasarlolista.entities.BevasarloLista;
 import hu.elte.fullstack.bevasarlolista.repositories.BevasarloListaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,5 +69,67 @@ public class BevasarloListaController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @PutMapping("/{sorszam}/additems")
+    public ResponseEntity<BevasarloLista> addAru(@RequestBody Aru aru, @PathVariable Integer sorszam)
+    {
+        Optional<BevasarloLista> optionalBevasarloLista = bevasarloListaRepository.findById(sorszam);
+        if(!optionalBevasarloLista.isPresent())
+        {
+            return ResponseEntity.notFound().build();
+        }
+        BevasarloLista bevasarloLista = optionalBevasarloLista.get();
+        if(bevasarloLista.getAruk()==null)
+        {
+            bevasarloLista.setAruk(new ArrayList<Aru>());
+        }
+        bevasarloLista.getAruk().add(aru);
+        return ResponseEntity.ok(bevasarloListaRepository.save(bevasarloLista));
+
+    }
+
+    @PutMapping("/{sorszam}/edititems")
+    public ResponseEntity<BevasarloLista> modifyAru(@RequestBody Aru aru1,@RequestBody Aru aru2, @PathVariable Integer sorszam)
+    {
+        Optional<BevasarloLista> optionalBevasarloLista = bevasarloListaRepository.findById(sorszam);
+        if(!optionalBevasarloLista.isPresent())
+        {
+            return ResponseEntity.notFound().build();
+        }
+        BevasarloLista bevasarloLista = optionalBevasarloLista.get();
+        if(bevasarloLista.getAruk()==null)
+        {
+            return ResponseEntity.notFound().build();
+        }
+        if (!bevasarloLista.getAruk().contains(aru1))
+        {
+            return ResponseEntity.notFound().build();
+        }
+        bevasarloLista.getAruk().set(bevasarloLista.getAruk().indexOf(aru1),aru2);
+        return ResponseEntity.ok(bevasarloListaRepository.save(bevasarloLista));
+
+    }
+
+    @PutMapping("/{sorszam}/deleteitems")
+    public ResponseEntity<BevasarloLista> deleteAru(@RequestBody Aru aru, @PathVariable Integer sorszam)
+    {
+        Optional<BevasarloLista> optionalBevasarloLista = bevasarloListaRepository.findById(sorszam);
+        if(!optionalBevasarloLista.isPresent())
+        {
+            return ResponseEntity.notFound().build();
+        }
+        BevasarloLista bevasarloLista = optionalBevasarloLista.get();
+        if(bevasarloLista.getAruk()==null)
+        {
+            return ResponseEntity.notFound().build();
+        }
+        if (!bevasarloLista.getAruk().contains(aru))
+        {
+            return ResponseEntity.notFound().build();
+        }
+        bevasarloLista.getAruk().remove(aru);
+        return ResponseEntity.ok(bevasarloListaRepository.save(bevasarloLista));
+
     }
 }
