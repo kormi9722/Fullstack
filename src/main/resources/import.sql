@@ -18,6 +18,21 @@ insert into FUTARSZOLGALAT (NEV, KISZALLITASIDO) values ('GLS', 1)
 insert into FUTARSZOLGALAT (NEV, KISZALLITASIDO) values ('UPS', 2)
 
 insert into BEVASARLOLISTA (FELHASZNALO_Id) values (2);
+insert into BEVASARLOLISTA (FELHASZNALO_Id) values (2);
+insert into BEVASARLOLISTA (FELHASZNALO_Id) values (3);
+insert into BEVASARLOLISTA (FELHASZNALO_Id) values (3);
+insert into BEVASARLOLISTA (FELHASZNALO_Id) values (3);
+
+
+insert into BOLT (NEV, CIM, HONLAP) values ('COOP', 'COOP u. 12', 'www.coop.hu')
+insert into BOLT (NEV, CIM, HONLAP) values ('CBA', 'CBA u. 48', 'www.cba.hu')
+insert into BOLT (NEV, CIM, HONLAP) values ('Real', 'Real u. 123', 'www.real.hu')
+
+insert into ARU_BOLTOK (ARUK_CIKKSZAM, BOLTOK_SORSZAM) values (1, 1)
+insert into ARU_BOLTOK (ARUK_CIKKSZAM, BOLTOK_SORSZAM) values (1, 2)
+insert into ARU_BOLTOK (ARUK_CIKKSZAM, BOLTOK_SORSZAM) values (10, 3)
+insert into ARU_BOLTOK (ARUK_CIKKSZAM, BOLTOK_SORSZAM) values (10, 2)
+insert into ARU_BOLTOK (ARUK_CIKKSZAM, BOLTOK_SORSZAM) values (10, 1)
 
 
 

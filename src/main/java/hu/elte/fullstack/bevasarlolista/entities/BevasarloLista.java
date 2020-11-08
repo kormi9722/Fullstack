@@ -25,7 +25,6 @@ public class BevasarloLista {
     @JoinColumn
     private Felhasznalo felhasznalo;
 
-    @JsonIgnore
     @ManyToMany(mappedBy = "bevasarloListak")
     private List<Aru> aruk;
 

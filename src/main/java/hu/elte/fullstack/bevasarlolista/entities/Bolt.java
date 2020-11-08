@@ -20,6 +20,9 @@ import java.util.List;
 public class Bolt {
 
     @Id
+    @Column
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer sorszam;
 
     @Column(nullable = false, name = "NEV")
