@@ -34,4 +34,15 @@ public class FelhasznaloController {
         }
     }
 
+    @DeleteMapping("/{sorszam}/deletefelhasznalo")
+    public ResponseEntity delete(@PathVariable Integer sorszam) {
+        Optional<Felhasznalo> optionalFelhasznalo = userRepository.findById(sorszam);
+        if (optionalFelhasznalo.isPresent()) {
+            userRepository.deleteById(sorszam);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }

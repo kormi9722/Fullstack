@@ -6,7 +6,7 @@ import hu.elte.fullstack.bevasarlolista.entities.Felhasznalo;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FelhasznaloRepository extends CrudRepository<Felhasznalo, Long>{
+public interface FelhasznaloRepository extends CrudRepository<Felhasznalo, Integer>{
 
     Optional<Felhasznalo> findByFelhasznaloNev(String felhasznaloNev);
 
